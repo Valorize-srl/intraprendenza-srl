@@ -805,6 +805,27 @@
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
+.visit-website-btn {
+  padding: 1rem 2.5rem;
+  background: var(--project-color);
+  color: white;
+  border: 2px solid var(--project-color);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-medium);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.visit-website-btn:hover {
+  background: transparent;
+  color: var(--project-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
 /* Responsive adjustments for project details */
 @media (max-width: 768px) {
   .project-detail {

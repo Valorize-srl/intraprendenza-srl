@@ -25,6 +25,7 @@ function App() {
       name: 'Lead Accelerator',
       color: '#FF8C42',
       icon: '🚀',
+      website: null,
       description: 'AI-powered lead generation and enrichment division. Utilizing chatbot technology and an internal call center to validate and qualify leads.',
       highlights: [
         'Best Partner 2023 & 2024 for Eolo',
@@ -58,6 +59,7 @@ function App() {
       name: 'Search Booster',
       color: '#4ECDC4',
       icon: '🔍',
+      website: 'https://searchbooster.ai',
       description: 'Proprietary search engines driving traffic to Yahoo, our advertising feed provider. Generating millions of searches monthly through strategic paid media campaigns.',
       highlights: [
         'Yahoo! Partnership',
@@ -91,6 +93,7 @@ function App() {
       name: 'Cleobi',
       color: '#1A365D',
       icon: '🛍️',
+      website: 'https://cleobi.com',
       description: 'Shopping comparison platform delivering high-intent traffic to client e-commerce sites. Revenue-based performance model.',
       highlights: [
         'eBay Partner since 2023',
@@ -124,6 +127,7 @@ function App() {
       name: 'Adsflare',
       color: '#E63946',
       icon: '📊',
+      website: 'https://www.adsflare.ai/',
       description: 'SaaS platform specialized in managing Google Ads campaigns, particularly Shopping and Performance Max for e-Commerce businesses.',
       highlights: [
         'Google Ads Expertise',
@@ -157,6 +161,7 @@ function App() {
       name: 'Werego',
       color: '#06D6A0',
       icon: '📈',
+      website: 'https://www.werego.io/',
       description: 'Advanced tracking system for monitoring Google AFS keyword performance and outbound traffic monetization platform for editorial websites.',
       highlights: [
         'Google AFS Integration',
@@ -361,12 +366,23 @@ function App() {
             </div>
 
             <div className="project-detail-footer">
-              <button
-                className="back-to-projects-btn"
-                onClick={() => scrollToSection('projects')}
-              >
-                ← Back to All Projects
-              </button>
+              {project.website ? (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="visit-website-btn"
+                >
+                  Visit {project.name} Website →
+                </a>
+              ) : (
+                <button
+                  className="back-to-projects-btn"
+                  onClick={() => scrollToSection('projects')}
+                >
+                  ← Back to All Projects
+                </button>
+              )}
             </div>
           </div>
         </section>
