@@ -450,6 +450,37 @@
 .footer-tagline {
   opacity: 0.8;
   font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-company-info {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-company-info p {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-company-info strong {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.footer-company-info a {
+  color: white;
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: all var(--transition-fast);
+}
+
+.footer-company-info a:hover {
+  opacity: 1;
+  color: var(--primary-color);
 }
 
 .footer-links {

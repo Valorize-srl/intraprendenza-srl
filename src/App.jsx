@@ -381,6 +381,15 @@ function App() {
               <p className="footer-tagline">
                 Performance Marketing Excellence since 2018
               </p>
+              <div className="footer-company-info">
+                <p><strong>INTRAPRENDENZA S.R.L.</strong></p>
+                <p>VIA CALZABIGI 4</p>
+                <p>57125 - LIVORNO (LI)</p>
+                <p>REA: 207784</p>
+                <p>Capitale sociale: € 10.000,00</p>
+                <p>PEC: <a href="mailto:intraprendenzasrl@pec.it">intraprendenzasrl@pec.it</a></p>
+                <p>Codice destinatario: M5UXCR1</p>
+              </div>
             </div>
             <div className="footer-links">
               <div className="footer-column">
