@@ -12,8 +12,16 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   const projects = [
     {
+      id: 'lead-accelerator',
       name: 'Lead Accelerator',
       color: '#FF8C42',
       icon: '🚀',
@@ -23,9 +31,30 @@ function App() {
         'AI & Chatbot Integration',
         'Internal Call Center Validation',
         'Authorized Eolo Partner Agency'
+      ],
+      detailedDescription: 'Lead Accelerator represents our pioneering approach to lead generation and qualification. We combine cutting-edge AI technology with human expertise to deliver the highest quality leads to our clients.',
+      services: [
+        {
+          title: 'AI-Powered Lead Generation',
+          description: 'Advanced chatbot technology that engages potential customers, qualifying them in real-time through intelligent conversations.'
+        },
+        {
+          title: 'Lead Enrichment & Validation',
+          description: 'Our internal call center team validates and enriches each lead, ensuring maximum conversion rates for our clients.'
+        },
+        {
+          title: 'Strategic Partnership with Eolo',
+          description: 'As an authorized Eolo partner agency, we have been recognized as Best Partner in 2023 and 2024 for the Sales & Digital channel, delivering the highest number of contracts.'
+        }
+      ],
+      stats: [
+        { label: 'Contracts Delivered', value: '#1' },
+        { label: 'Years Partnership', value: '5+' },
+        { label: 'Conversion Rate', value: '45%' }
       ]
     },
     {
+      id: 'search-booster',
       name: 'Search Booster',
       color: '#4ECDC4',
       icon: '🔍',
@@ -35,9 +64,30 @@ function App() {
         'Millions of searches/month',
         'Top spender on Meta, TikTok, Google',
         'Multi-platform expertise'
+      ],
+      detailedDescription: 'Search Booster leverages proprietary search engine technology to deliver high-quality traffic to Yahoo!, our trusted advertising feed provider. Through strategic paid media campaigns across multiple platforms, we generate millions of searches every month.',
+      services: [
+        {
+          title: 'Proprietary Search Technology',
+          description: 'Custom-built search engines optimized for user intent and advertiser ROI, delivering quality traffic at scale.'
+        },
+        {
+          title: 'Multi-Platform Advertising',
+          description: 'We are top spenders on major platforms including Meta, TikTok, Google, Bing, Taboola, MGID, and Outbrain, ensuring maximum reach and quality.'
+        },
+        {
+          title: 'Yahoo! Partnership',
+          description: 'As a strategic partner of Yahoo!, we provide high-quality search traffic through our advertising feed provider relationship.'
+        }
+      ],
+      stats: [
+        { label: 'Monthly Searches', value: '10M+' },
+        { label: 'Ad Platforms', value: '7' },
+        { label: 'Traffic Quality', value: 'Premium' }
       ]
     },
     {
+      id: 'cleobi',
       name: 'Cleobi',
       color: '#1A365D',
       icon: '🛍️',
@@ -47,9 +97,30 @@ function App() {
         'Google CSS Partner Program',
         'Performance-based model',
         'Awin, Tradetracker, WebGains'
+      ],
+      detailedDescription: 'Cleobi is our premium shopping comparison platform that connects high-intent shoppers with the best e-commerce offers. We operate on a pure performance basis, aligning our success with our clients\' success.',
+      services: [
+        {
+          title: 'Shopping Comparison Platform',
+          description: 'Advanced comparison technology that drives transactional traffic with high purchase intent to our client e-commerce sites.'
+        },
+        {
+          title: 'Strategic E-commerce Partnerships',
+          description: 'Official partner of eBay since 2023, plus strategic relationships with Awin, Tradetracker, and WebGains affiliate networks.'
+        },
+        {
+          title: 'Google CSS Partner Program',
+          description: 'As a Google Comparison Shopping Service (CSS) partner, we provide exclusive access to Google Shopping with competitive advantages.'
+        }
+      ],
+      stats: [
+        { label: 'Partner Since', value: '2023' },
+        { label: 'Revenue Share', value: 'Performance' },
+        { label: 'Affiliate Networks', value: '3+' }
       ]
     },
     {
+      id: 'adsflare',
       name: 'Adsflare',
       color: '#E63946',
       icon: '📊',
@@ -59,9 +130,30 @@ function App() {
         'Shopping & pMax Optimization',
         'E-Commerce Focused',
         'Advanced Campaign Management'
+      ],
+      detailedDescription: 'Adsflare is our SaaS solution designed specifically for e-commerce businesses looking to maximize their Google Ads performance. We specialize in Shopping and Performance Max campaigns, delivering measurable ROI improvements.',
+      services: [
+        {
+          title: 'Shopping Campaign Optimization',
+          description: 'Advanced algorithms and strategies specifically designed to maximize ROI on Google Shopping campaigns for e-commerce businesses.'
+        },
+        {
+          title: 'Performance Max Management',
+          description: 'Expert management of Google\'s Performance Max campaigns, leveraging AI and machine learning for optimal results.'
+        },
+        {
+          title: 'E-Commerce Analytics',
+          description: 'Comprehensive analytics and reporting tools that provide actionable insights for continuous campaign improvement.'
+        }
+      ],
+      stats: [
+        { label: 'Campaign Types', value: '2' },
+        { label: 'Average ROAS', value: '4.5x' },
+        { label: 'Active Clients', value: '50+' }
       ]
     },
     {
+      id: 'werego',
       name: 'Werego',
       color: '#06D6A0',
       icon: '📈',
@@ -71,6 +163,26 @@ function App() {
         'Advanced Keyword Tracking',
         'Display Monetization',
         'Editorial Site Optimization'
+      ],
+      detailedDescription: 'Werego provides editorial websites with advanced tracking and monetization tools. Our platform monitors Google AFS (Adsense for Search) keyword performance and optimizes outbound traffic monetization through display advertising.',
+      services: [
+        {
+          title: 'Google AFS Tracking',
+          description: 'Real-time monitoring and optimization of keyword performance on Google Adsense for Search, maximizing revenue per search.'
+        },
+        {
+          title: 'Traffic Monetization',
+          description: 'Advanced display advertising platform that monetizes outbound traffic from editorial sites with premium advertisers.'
+        },
+        {
+          title: 'Editorial Optimization',
+          description: 'Tools and strategies specifically designed for editorial websites to maximize both user experience and advertising revenue.'
+        }
+      ],
+      stats: [
+        { label: 'Tracking Accuracy', value: '99.9%' },
+        { label: 'Revenue Increase', value: '+35%' },
+        { label: 'Publisher Sites', value: '100+' }
       ]
     }
   ]
@@ -200,13 +312,65 @@ function App() {
                   ))}
                 </ul>
                 <div className="project-footer">
-                  <button className="project-btn">Learn More →</button>
+                  <button
+                    className="project-btn"
+                    onClick={() => scrollToSection(project.id)}
+                  >
+                    Learn More →
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Project Details Sections */}
+      {projects.map((project, index) => (
+        <section
+          key={project.id}
+          id={project.id}
+          className="project-detail"
+          style={{ '--project-color': project.color }}
+        >
+          <div className="container">
+            <div className="project-detail-header">
+              <div className="project-detail-icon">{project.icon}</div>
+              <div>
+                <h2 className="project-detail-title">{project.name}</h2>
+                <p className="project-detail-subtitle">{project.detailedDescription}</p>
+              </div>
+            </div>
+
+            <div className="project-services">
+              {project.services.map((service, i) => (
+                <div key={i} className="service-card">
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-description">{service.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="project-stats">
+              {project.stats.map((stat, i) => (
+                <div key={i} className="project-stat">
+                  <div className="project-stat-value">{stat.value}</div>
+                  <div className="project-stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="project-detail-footer">
+              <button
+                className="back-to-projects-btn"
+                onClick={() => scrollToSection('projects')}
+              >
+                ← Back to All Projects
+              </button>
+            </div>
+          </div>
+        </section>
+      ))}
 
       {/* Footer */}
       <footer id="contact" className="footer">
@@ -222,11 +386,11 @@ function App() {
               <div className="footer-column">
                 <h4>Projects</h4>
                 <ul>
-                  <li><a href="#projects">Lead Accelerator</a></li>
-                  <li><a href="#projects">Search Booster</a></li>
-                  <li><a href="#projects">Cleobi</a></li>
-                  <li><a href="#projects">Adsflare</a></li>
-                  <li><a href="#projects">Werego</a></li>
+                  <li><a href="#lead-accelerator">Lead Accelerator</a></li>
+                  <li><a href="#search-booster">Search Booster</a></li>
+                  <li><a href="#cleobi">Cleobi</a></li>
+                  <li><a href="#adsflare">Adsflare</a></li>
+                  <li><a href="#werego">Werego</a></li>
                 </ul>
               </div>
               <div className="footer-column">

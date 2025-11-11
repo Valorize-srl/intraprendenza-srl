@@ -562,3 +562,243 @@
     padding: 1.5rem;
   }
 }
+
+/* Project Detail Sections */
+.project-detail {
+  padding: 6rem 0;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.98) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.project-detail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--project-color);
+  box-shadow: 0 4px 20px var(--project-color);
+}
+
+.project-detail::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(circle at center,
+    rgba(var(--project-color-rgb), 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.project-detail:nth-child(odd)::after {
+  right: auto;
+  left: -10%;
+}
+
+.project-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-detail-icon {
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: var(--project-color);
+  border-radius: 25px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.project-detail-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--secondary-dark);
+  margin-bottom: 1rem;
+}
+
+.project-detail-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 800px;
+}
+
+.project-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all var(--transition-medium);
+  border-left: 4px solid var(--project-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--project-color);
+  transition: height var(--transition-medium);
+}
+
+.service-card:hover::before {
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: var(--secondary-dark);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.service-description {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.project-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.project-stat {
+  text-align: center;
+  padding: 2rem;
+  min-width: 180px;
+}
+
+.project-stat-value {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--project-color);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-stat-label {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-detail-footer {
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.back-to-projects-btn {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--project-color);
+  border: 2px solid var(--project-color);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-medium);
+  cursor: pointer;
+}
+
+.back-to-projects-btn:hover {
+  background: var(--project-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments for project details */
+@media (max-width: 768px) {
+  .project-detail {
+    padding: 4rem 0;
+  }
+
+  .project-detail-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .project-detail-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 4rem;
+  }
+
+  .project-services {
+    grid-template-columns: 1fr;
+  }
+
+  .project-stats {
+    gap: 2rem;
+  }
+
+  .project-stat-value {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
+  }
+
+  .project-stat {
+    padding: 1rem;
+    min-width: 140px;
+  }
+}
