@@ -36,6 +36,7 @@
   color: white;
   margin: 0;
   transition: color var(--transition-fast);
+  text-decoration: none;
 }
 
 .header.scrolled .logo {
@@ -448,6 +449,11 @@
 .privacy-policy {
   padding: 6rem 0;
   background: #f8f9fa;
+}
+
+.privacy-page {
+  padding-top: 8rem;
+  min-height: 100vh;
 }
 
 .privacy-content {
