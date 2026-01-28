@@ -444,6 +444,74 @@
   transform: translateX(5px);
 }
 
+/* Privacy Policy Section */
+.privacy-policy {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.privacy-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.privacy-section {
+  background: white;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-medium);
+}
+
+.privacy-section:hover {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.privacy-section h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.privacy-section p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.privacy-section ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.privacy-section li {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-section a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.privacy-section a:hover {
+  text-decoration: underline;
+}
+
+.privacy-update {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  font-style: italic;
+  color: #888;
+}
+
 /* Footer */
 .footer {
   background: var(--secondary-dark);
@@ -587,6 +655,14 @@
   .btn {
     width: 100%;
     max-width: 300px;
+  }
+
+  .privacy-policy {
+    padding: 4rem 0;
+  }
+
+  .privacy-section {
+    padding: 1.5rem;
   }
 }
 

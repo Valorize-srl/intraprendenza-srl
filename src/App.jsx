@@ -121,74 +121,6 @@ function App() {
         { label: 'Revenue Share', value: 'Performance' },
         { label: 'Affiliate Networks', value: '3+' }
       ]
-    },
-    {
-      id: 'adsflare',
-      name: 'Adsflare',
-      color: '#E63946',
-      icon: '📊',
-      website: 'https://www.adsflare.ai/',
-      description: 'SaaS platform specialized in managing Google Ads campaigns, particularly Shopping and Performance Max for e-Commerce businesses.',
-      highlights: [
-        'Google Ads Expertise',
-        'Shopping & pMax Optimization',
-        'E-Commerce Focused',
-        'Advanced Campaign Management'
-      ],
-      detailedDescription: 'Adsflare is our SaaS solution designed specifically for e-commerce businesses looking to maximize their Google Ads performance. We specialize in Shopping and Performance Max campaigns, delivering measurable ROI improvements.',
-      services: [
-        {
-          title: 'Shopping Campaign Optimization',
-          description: 'Advanced algorithms and strategies specifically designed to maximize ROI on Google Shopping campaigns for e-commerce businesses.'
-        },
-        {
-          title: 'Performance Max Management',
-          description: 'Expert management of Google\'s Performance Max campaigns, leveraging AI and machine learning for optimal results.'
-        },
-        {
-          title: 'E-Commerce Analytics',
-          description: 'Comprehensive analytics and reporting tools that provide actionable insights for continuous campaign improvement.'
-        }
-      ],
-      stats: [
-        { label: 'Campaign Types', value: '2' },
-        { label: 'Average ROAS', value: '4.5x' },
-        { label: 'Active Clients', value: '50+' }
-      ]
-    },
-    {
-      id: 'werego',
-      name: 'Werego',
-      color: '#06D6A0',
-      icon: '📈',
-      website: 'https://www.werego.io/',
-      description: 'Advanced tracking system for monitoring Google AFS keyword performance and outbound traffic monetization platform for editorial websites.',
-      highlights: [
-        'Google AFS Integration',
-        'Advanced Keyword Tracking',
-        'Display Monetization',
-        'Editorial Site Optimization'
-      ],
-      detailedDescription: 'Werego provides editorial websites with advanced tracking and monetization tools. Our platform monitors Google AFS (Adsense for Search) keyword performance and optimizes outbound traffic monetization through display advertising.',
-      services: [
-        {
-          title: 'Google AFS Tracking',
-          description: 'Real-time monitoring and optimization of keyword performance on Google Adsense for Search, maximizing revenue per search.'
-        },
-        {
-          title: 'Traffic Monetization',
-          description: 'Advanced display advertising platform that monetizes outbound traffic from editorial sites with premium advertisers.'
-        },
-        {
-          title: 'Editorial Optimization',
-          description: 'Tools and strategies specifically designed for editorial websites to maximize both user experience and advertising revenue.'
-        }
-      ],
-      stats: [
-        { label: 'Tracking Accuracy', value: '99.9%' },
-        { label: 'Revenue Increase', value: '+35%' },
-        { label: 'Publisher Sites', value: '100+' }
-      ]
     }
   ]
 
@@ -228,7 +160,7 @@ function App() {
             </div>
             <div className="hero-stats">
               <div className="stat">
-                <div className="stat-number">5</div>
+                <div className="stat-number">3</div>
                 <div className="stat-label">Innovative Projects</div>
               </div>
               <div className="stat">
@@ -263,9 +195,9 @@ function App() {
                 of cutting-edge digital solutions.
               </p>
               <p className="about-description">
-                Today, we operate five distinct divisions, each specializing in different
+                Today, we operate three distinct divisions, each specializing in different
                 aspects of the digital marketing landscape. From AI-powered lead generation
-                to advanced tracking systems, our projects represent the forefront of
+                to shopping comparison technology, our projects represent the forefront of
                 marketing technology and strategy.
               </p>
             </div>
@@ -296,7 +228,7 @@ function App() {
           <div className="section-header">
             <h2 className="section-title">Our Projects</h2>
             <p className="section-subtitle">
-              Five innovative divisions driving digital excellence
+              Three innovative divisions driving digital excellence
             </p>
           </div>
           <div className="projects-grid">
@@ -388,6 +320,125 @@ function App() {
         </section>
       ))}
 
+      {/* Privacy Policy Section */}
+      <section id="privacy" className="privacy-policy">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Privacy Policy</h2>
+            <p className="section-subtitle">
+              Information about how we collect and use your data
+            </p>
+          </div>
+          <div className="privacy-content">
+            <div className="privacy-section">
+              <h3>1. Data Controller</h3>
+              <p>
+                The Data Controller is Intraprendenza S.r.l., with registered office at Via Calzabigi 4, 57125 Livorno (LI),
+                Italy, REA 207784, email: intraprendenzasrl@pec.it
+              </p>
+            </div>
+
+            <div className="privacy-section">
+              <h3>2. Types of Data Collected</h3>
+              <p>
+                Among the types of Personal Data that this website collects, by itself or through third parties, there are:
+                Cookies, Usage Data, email address, first name, and last name.
+              </p>
+              <p>
+                Complete details on each type of Personal Data collected are provided in the dedicated sections of this
+                privacy policy or by specific explanation texts displayed prior to the Data collection.
+              </p>
+            </div>
+
+            <div className="privacy-section">
+              <h3>3. Purpose of Data Processing</h3>
+              <p>
+                The Data concerning the User is collected to allow the Owner to provide its services, as well as for the
+                following purposes:
+              </p>
+              <ul>
+                <li>Analytics and statistics</li>
+                <li>Contacting the User</li>
+                <li>Managing contacts and sending messages</li>
+                <li>Interaction with external social networks and platforms</li>
+              </ul>
+            </div>
+
+            <div className="privacy-section">
+              <h3>4. Legal Basis for Processing</h3>
+              <p>
+                The Owner may process Personal Data relating to Users if one of the following applies:
+              </p>
+              <ul>
+                <li>Users have given their consent for one or more specific purposes</li>
+                <li>Provision of Data is necessary for the performance of an agreement with the User</li>
+                <li>Processing is necessary for compliance with a legal obligation</li>
+                <li>Processing is related to a task carried out in the public interest</li>
+                <li>Processing is necessary for the purposes of legitimate interests pursued by the Owner</li>
+              </ul>
+            </div>
+
+            <div className="privacy-section">
+              <h3>5. User Rights</h3>
+              <p>
+                Users may exercise certain rights regarding their Data processed by the Owner. In particular, Users have
+                the right to:
+              </p>
+              <ul>
+                <li>Withdraw their consent at any time</li>
+                <li>Object to processing of their Data</li>
+                <li>Access their Data</li>
+                <li>Verify and seek rectification</li>
+                <li>Restrict the processing of their Data</li>
+                <li>Have their Personal Data deleted or otherwise removed</li>
+                <li>Receive their Data and have it transferred to another controller</li>
+                <li>Lodge a complaint with the relevant data protection authority</li>
+              </ul>
+            </div>
+
+            <div className="privacy-section">
+              <h3>6. Cookies</h3>
+              <p>
+                This website uses Cookies and similar technologies to ensure proper functioning and to improve user experience.
+                Users can manage their preferences regarding Cookies through their browser settings.
+              </p>
+            </div>
+
+            <div className="privacy-section">
+              <h3>7. Data Retention</h3>
+              <p>
+                Personal Data shall be processed and stored for as long as required by the purpose for which it has been collected.
+                Therefore, Personal Data collected for purposes related to the performance of a contract shall be retained until
+                such contract has been fully performed.
+              </p>
+            </div>
+
+            <div className="privacy-section">
+              <h3>8. Contact Information</h3>
+              <p>
+                For any questions or requests regarding this Privacy Policy, you can contact us at:
+              </p>
+              <p>
+                <strong>Email:</strong> <a href="mailto:intraprendenzasrl@pec.it">intraprendenzasrl@pec.it</a><br />
+                <strong>Address:</strong> Via Calzabigi 4, 57125 Livorno (LI), Italy
+              </p>
+            </div>
+
+            <div className="privacy-section">
+              <h3>9. Changes to This Privacy Policy</h3>
+              <p>
+                The Owner reserves the right to make changes to this privacy policy at any time by giving notice to its Users
+                on this page. It is strongly recommended to check this page often, referring to the date of the last modification
+                listed at the bottom.
+              </p>
+              <p className="privacy-update">
+                <strong>Last updated:</strong> January 28, 2026
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="contact" className="footer">
         <div className="container">
@@ -414,8 +465,6 @@ function App() {
                   <li><a href="#lead-accelerator">Lead Accelerator</a></li>
                   <li><a href="#search-booster">Search Booster</a></li>
                   <li><a href="#cleobi">Cleobi</a></li>
-                  <li><a href="#adsflare">Adsflare</a></li>
-                  <li><a href="#werego">Werego</a></li>
                 </ul>
               </div>
               <div className="footer-column">
@@ -424,6 +473,7 @@ function App() {
                   <li><a href="#about">About Us</a></li>
                   <li><a href="#projects">Our Work</a></li>
                   <li><a href="#contact">Contact</a></li>
+                  <li><a href="#privacy">Privacy Policy</a></li>
                 </ul>
               </div>
             </div>
