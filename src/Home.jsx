@@ -627,95 +627,138 @@ function Home() {
             We partner with companies that have scalable business models capable of generating millions in revenue.
             Each specialization serves specific market segments with tailored digital marketing strategies.
           </p>
-          <div className="work-grid">
-            {/* B2C Lead Generation */}
-            <div className="work-card" style={{ '--accent': '#FF8C42' }}>
-              <div className="work-card__icon">{Icons.rocket}</div>
-              <h3 className="work-card__title">B2C Lead Generation & Sales</h3>
-              <p className="work-card__description">
-                Full-funnel system for B2C businesses seeking qualified leads and direct sales.
-                Our integrated approach combines AI-powered lead generation with our internal contact center
-                for phone-based conversion, ensuring maximum ROI.
-              </p>
-              <div className="work-card__tags">
-                <span>Full Funnel</span>
-                <span>AI Chatbot</span>
-                <span>Contact Center</span>
+        </div>
+
+        {/* B2C Lead Generation - Content Left */}
+        <div className="split-section split-section--left">
+          <div className="container">
+            <div className="split-section__grid">
+              <div className="split-section__content">
+                <div className="split-section__icon" style={{ '--accent': '#FF8C42' }}>
+                  {Icons.rocket}
+                </div>
+                <h3 className="split-section__title">B2C Lead Generation & Sales</h3>
+                <p className="split-section__description">
+                  Full-funnel system for B2C businesses seeking qualified leads and direct sales.
+                  Our integrated approach combines AI-powered lead generation with our internal contact center
+                  for phone-based conversion, ensuring maximum ROI.
+                </p>
+                <div className="split-section__tags">
+                  <span style={{ '--accent': '#FF8C42' }}>Full Funnel</span>
+                  <span style={{ '--accent': '#FF8C42' }}>AI Chatbot</span>
+                  <span style={{ '--accent': '#FF8C42' }}>Contact Center</span>
+                </div>
+                <div className="split-section__partners">
+                  <span className="split-section__partners-label">Active Partners</span>
+                  <div className="split-section__partners-list">
+                    <span className="partner-badge" style={{ '--accent': '#FF8C42' }}>Eolo</span>
+                  </div>
+                </div>
               </div>
-              <div className="work-card__partners">
-                <span className="work-card__partners-label">Active Partners</span>
-                <div className="work-card__partners-list">
-                  <span className="partner-badge">Eolo</span>
+              <div className="split-section__visual" style={{ '--accent': '#FF8C42' }}>
+                <div className="split-section__visual-icon">{Icons.rocket}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* High-Volume Search Traffic - Content Right */}
+        <div className="split-section split-section--right">
+          <div className="container">
+            <div className="split-section__grid">
+              <div className="split-section__visual" style={{ '--accent': '#4ECDC4' }}>
+                <div className="split-section__visual-icon">{Icons.search}</div>
+              </div>
+              <div className="split-section__content">
+                <div className="split-section__icon" style={{ '--accent': '#4ECDC4' }}>
+                  {Icons.search}
+                </div>
+                <h3 className="split-section__title">High-Volume Search Traffic</h3>
+                <p className="split-section__description">
+                  For businesses targeting massive search traffic volumes. As top partners with Yahoo! and Google,
+                  we deliver premium quality search traffic at scale through our proprietary technology.
+                </p>
+                <div className="split-section__tags">
+                  <span style={{ '--accent': '#4ECDC4' }}>Proprietary Tech</span>
+                  <span style={{ '--accent': '#4ECDC4' }}>Multi-Platform</span>
+                  <span style={{ '--accent': '#4ECDC4' }}>High Volume</span>
+                </div>
+                <div className="split-section__partners">
+                  <span className="split-section__partners-label">Active Partners</span>
+                  <div className="split-section__partners-list">
+                    <span className="partner-badge" style={{ '--accent': '#4ECDC4' }}>Google</span>
+                    <span className="partner-badge" style={{ '--accent': '#4ECDC4' }}>Yahoo!</span>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* High-Volume Search Traffic */}
-            <div className="work-card" style={{ '--accent': '#4ECDC4' }}>
-              <div className="work-card__icon">{Icons.search}</div>
-              <h3 className="work-card__title">High-Volume Search Traffic</h3>
-              <p className="work-card__description">
-                For businesses targeting massive search traffic volumes. As top partners with Yahoo! and Google,
-                we deliver premium quality search traffic at scale through our proprietary technology.
-              </p>
-              <div className="work-card__tags">
-                <span>Proprietary Tech</span>
-                <span>Multi-Platform</span>
-                <span>High Volume</span>
-              </div>
-              <div className="work-card__partners">
-                <span className="work-card__partners-label">Active Partners</span>
-                <div className="work-card__partners-list">
-                  <span className="partner-badge">Google</span>
-                  <span className="partner-badge">Yahoo!</span>
+        {/* E-Commerce B2C - Content Left */}
+        <div className="split-section split-section--left">
+          <div className="container">
+            <div className="split-section__grid">
+              <div className="split-section__content">
+                <div className="split-section__icon" style={{ '--accent': '#1A365D' }}>
+                  {Icons.cart}
+                </div>
+                <h3 className="split-section__title">E-Commerce B2C</h3>
+                <p className="split-section__description">
+                  Boost your e-commerce sales through optimized Google Shopping campaigns.
+                  Our performance-based approach means we only succeed when you make sales,
+                  perfectly aligning our interests with yours.
+                </p>
+                <div className="split-section__tags">
+                  <span style={{ '--accent': '#1A365D' }}>Google Shopping</span>
+                  <span style={{ '--accent': '#1A365D' }}>Performance-Based</span>
+                  <span style={{ '--accent': '#1A365D' }}>Rev-Share</span>
+                </div>
+                <div className="split-section__partners">
+                  <span className="split-section__partners-label">Active Partners</span>
+                  <div className="split-section__partners-list">
+                    <span className="partner-badge" style={{ '--accent': '#1A365D' }}>eBay</span>
+                    <span className="partner-badge" style={{ '--accent': '#1A365D' }}>Awin</span>
+                    <span className="partner-badge" style={{ '--accent': '#1A365D' }}>WebGains</span>
+                    <span className="partner-badge" style={{ '--accent': '#1A365D' }}>Tradetracker</span>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* E-Commerce B2C */}
-            <div className="work-card" style={{ '--accent': '#1A365D' }}>
-              <div className="work-card__icon">{Icons.cart}</div>
-              <h3 className="work-card__title">E-Commerce B2C</h3>
-              <p className="work-card__description">
-                Boost your e-commerce sales through optimized Google Shopping campaigns.
-                Our performance-based approach means we only succeed when you make sales,
-                perfectly aligning our interests with yours.
-              </p>
-              <div className="work-card__tags">
-                <span>Google Shopping</span>
-                <span>Performance-Based</span>
-                <span>Rev-Share</span>
+              <div className="split-section__visual" style={{ '--accent': '#1A365D' }}>
+                <div className="split-section__visual-icon">{Icons.cart}</div>
               </div>
-              <div className="work-card__partners">
-                <span className="work-card__partners-label">Active Partners</span>
-                <div className="work-card__partners-list">
-                  <span className="partner-badge">eBay</span>
-                  <span className="partner-badge">Awin</span>
-                  <span className="partner-badge">WebGains</span>
-                  <span className="partner-badge">Tradetracker</span>
+            </div>
+          </div>
+        </div>
+
+        {/* AI B2B Outreach - Content Right */}
+        <div className="split-section split-section--right">
+          <div className="container">
+            <div className="split-section__grid">
+              <div className="split-section__visual" style={{ '--accent': '#8B5CF6' }}>
+                <div className="split-section__visual-icon">{Icons.sparkles}</div>
+              </div>
+              <div className="split-section__content">
+                <div className="split-section__icon" style={{ '--accent': '#8B5CF6' }}>
+                  {Icons.sparkles}
                 </div>
-              </div>
-            </div>
-
-            {/* AI B2B Outreach */}
-            <div className="work-card" style={{ '--accent': '#8B5CF6' }}>
-              <div className="work-card__icon">{Icons.sparkles}</div>
-              <h3 className="work-card__title">AI B2B Outreach</h3>
-              <p className="work-card__description">
-                Create real business opportunities for B2B companies through our AI-powered outreach platform.
-                Integrates data enrichment with multi-channel outreach (email & LinkedIn) to generate qualified meetings.
-              </p>
-              <div className="work-card__tags">
-                <span>Data Enrichment</span>
-                <span>Email + LinkedIn</span>
-                <span>AI-Powered</span>
-              </div>
-              <div className="work-card__partners">
-                <span className="work-card__partners-label">Active Partners</span>
-                <div className="work-card__partners-list">
-                  <span className="partner-badge">Eolo</span>
-                  <span className="partner-badge">KPM Solutions</span>
-                  <span className="partner-badge">Pushloop</span>
+                <h3 className="split-section__title">AI B2B Outreach</h3>
+                <p className="split-section__description">
+                  Create real business opportunities for B2B companies through our AI-powered outreach platform.
+                  Integrates data enrichment with multi-channel outreach (email & LinkedIn) to generate qualified meetings.
+                </p>
+                <div className="split-section__tags">
+                  <span style={{ '--accent': '#8B5CF6' }}>Data Enrichment</span>
+                  <span style={{ '--accent': '#8B5CF6' }}>Email + LinkedIn</span>
+                  <span style={{ '--accent': '#8B5CF6' }}>AI-Powered</span>
+                </div>
+                <div className="split-section__partners">
+                  <span className="split-section__partners-label">Active Partners</span>
+                  <div className="split-section__partners-list">
+                    <span className="partner-badge" style={{ '--accent': '#8B5CF6' }}>Eolo</span>
+                    <span className="partner-badge" style={{ '--accent': '#8B5CF6' }}>KPM Solutions</span>
+                    <span className="partner-badge" style={{ '--accent': '#8B5CF6' }}>Pushloop</span>
+                  </div>
                 </div>
               </div>
             </div>
