@@ -1,30 +1,37 @@
 :root {
   /* Brand Colors */
-  --primary-color: #7E2954;
-  --secondary-dark: #2D2D2D;
-  --secondary-light: #ffffff;
+  --primary: #7E2954;
+  --primary-light: #a33d72;
+  --primary-dark: #5c1d3e;
+  --dark: #0F0F0F;
+  --dark-secondary: #1A1A1A;
+  --dark-tertiary: #2D2D2D;
+  --light: #ffffff;
+  --light-secondary: #f5f5f7;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #6c757d;
+  --gray-600: #495057;
+  --gray-700: #343a40;
 
   /* Project Colors */
-  --lead-accelerator: #FF8C42;
-  --search-booster: #4ECDC4;
-  --cleobi: #1A365D;
-  --adsflare: #E63946;
-  --werego: #06D6A0;
+  --color-lead-accelerator: #FF8C42;
+  --color-search-booster: #4ECDC4;
+  --color-cleobi: #1A365D;
+  --color-miriade: #8B5CF6;
 
   /* Typography */
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 6rem;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
 
   /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-medium: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-fast: 0.15s var(--ease-out);
+  --transition-medium: 0.3s var(--ease-out);
+  --transition-slow: 0.6s var(--ease-out);
 }
 
 * {
@@ -35,21 +42,24 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-body);
   line-height: 1.6;
-  color: var(--secondary-dark);
-  background-color: var(--secondary-light);
+  color: var(--dark);
+  background-color: var(--light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -58,7 +68,7 @@ a {
 }
 
 button {
-  font-family: inherit;
+  font-family: var(--font-body);
   cursor: pointer;
   border: none;
   outline: none;
