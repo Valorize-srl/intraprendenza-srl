@@ -725,6 +725,41 @@
   font-size: 0.75rem;
   font-weight: 600;
 }
+.work-card__partners {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+.work-card__partners-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+.work-card__partners-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.partner-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: all var(--transition-medium);
+}
+.partner-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 40%, transparent);
+}
 
 /* ═══════════════════════════════════════════
    Partnership

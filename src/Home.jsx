@@ -625,13 +625,13 @@ function Home() {
           <h2 className="section-title">Specialized solutions.<br />Scalable business.</h2>
           <p className="section-lead">
             We partner with companies that have scalable business models capable of generating millions in revenue.
-            Each division serves specific market segments with tailored digital marketing strategies.
+            Each specialization serves specific market segments with tailored digital marketing strategies.
           </p>
           <div className="work-grid">
+            {/* B2C Lead Generation */}
             <div className="work-card" style={{ '--accent': '#FF8C42' }}>
               <div className="work-card__icon">{Icons.rocket}</div>
-              <h3 className="work-card__title">Lead Accelerator</h3>
-              <p className="work-card__segment">B2C Lead Generation & Sales</p>
+              <h3 className="work-card__title">B2C Lead Generation & Sales</h3>
               <p className="work-card__description">
                 Full-funnel system for B2C businesses seeking qualified leads and direct sales.
                 Our integrated approach combines AI-powered lead generation with our internal contact center
@@ -642,27 +642,40 @@ function Home() {
                 <span>AI Chatbot</span>
                 <span>Contact Center</span>
               </div>
+              <div className="work-card__partners">
+                <span className="work-card__partners-label">Active Partners</span>
+                <div className="work-card__partners-list">
+                  <span className="partner-badge">Eolo</span>
+                </div>
+              </div>
             </div>
 
+            {/* High-Volume Search Traffic */}
             <div className="work-card" style={{ '--accent': '#4ECDC4' }}>
               <div className="work-card__icon">{Icons.search}</div>
-              <h3 className="work-card__title">Search Booster</h3>
-              <p className="work-card__segment">High-Volume Search Traffic</p>
+              <h3 className="work-card__title">High-Volume Search Traffic</h3>
               <p className="work-card__description">
                 For businesses targeting massive search traffic volumes. As top partners with Yahoo! and Google,
                 we deliver premium quality search traffic at scale through our proprietary technology.
               </p>
               <div className="work-card__tags">
-                <span>Yahoo! Partner</span>
-                <span>Google Partner</span>
+                <span>Proprietary Tech</span>
+                <span>Multi-Platform</span>
                 <span>High Volume</span>
+              </div>
+              <div className="work-card__partners">
+                <span className="work-card__partners-label">Active Partners</span>
+                <div className="work-card__partners-list">
+                  <span className="partner-badge">Google</span>
+                  <span className="partner-badge">Yahoo!</span>
+                </div>
               </div>
             </div>
 
+            {/* E-Commerce B2C */}
             <div className="work-card" style={{ '--accent': '#1A365D' }}>
               <div className="work-card__icon">{Icons.cart}</div>
-              <h3 className="work-card__title">Cleobi</h3>
-              <p className="work-card__segment">E-Commerce B2C</p>
+              <h3 className="work-card__title">E-Commerce B2C</h3>
               <p className="work-card__description">
                 Boost your e-commerce sales through optimized Google Shopping campaigns.
                 Our performance-based approach means we only succeed when you make sales,
@@ -671,14 +684,23 @@ function Home() {
               <div className="work-card__tags">
                 <span>Google Shopping</span>
                 <span>Performance-Based</span>
-                <span>E-Commerce</span>
+                <span>Rev-Share</span>
+              </div>
+              <div className="work-card__partners">
+                <span className="work-card__partners-label">Active Partners</span>
+                <div className="work-card__partners-list">
+                  <span className="partner-badge">eBay</span>
+                  <span className="partner-badge">Awin</span>
+                  <span className="partner-badge">WebGains</span>
+                  <span className="partner-badge">Tradetracker</span>
+                </div>
               </div>
             </div>
 
+            {/* AI B2B Outreach */}
             <div className="work-card" style={{ '--accent': '#8B5CF6' }}>
               <div className="work-card__icon">{Icons.sparkles}</div>
-              <h3 className="work-card__title">Miriade.ai</h3>
-              <p className="work-card__segment">B2B Outreach Platform</p>
+              <h3 className="work-card__title">AI B2B Outreach</h3>
               <p className="work-card__description">
                 Create real business opportunities for B2B companies through our AI-powered outreach platform.
                 Integrates data enrichment with multi-channel outreach (email & LinkedIn) to generate qualified meetings.
@@ -687,6 +709,14 @@ function Home() {
                 <span>Data Enrichment</span>
                 <span>Email + LinkedIn</span>
                 <span>AI-Powered</span>
+              </div>
+              <div className="work-card__partners">
+                <span className="work-card__partners-label">Active Partners</span>
+                <div className="work-card__partners-list">
+                  <span className="partner-badge">Eolo</span>
+                  <span className="partner-badge">KPM Solutions</span>
+                  <span className="partner-badge">Pushloop</span>
+                </div>
               </div>
             </div>
           </div>
