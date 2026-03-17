@@ -601,56 +601,141 @@ function Home() {
                     <li key={i}><span className="project-card__check">&#10003;</span>{h}</li>
                   ))}
                 </ul>
-                <button className="project-card__btn" onClick={() => scrollTo(p.id)}>
-                  Discover more
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
+                {p.website ? (
+                  <a href={p.website} target="_blank" rel="noopener noreferrer" className="project-card__btn">
+                    Visit {p.name}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                  </a>
+                ) : (
+                  <a href="#contact" className="project-card__btn">
+                    Contact Us
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </a>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Project Details ── */}
-      {projects.map((p) => (
-        <section key={p.id} id={p.id} className="detail" style={{ '--accent': p.colorHex }}>
-          <div className="container">
-            <div className="detail__head">
-              <div className="detail__icon">{p.icon}</div>
-              <div>
-                <h2 className="detail__title">{p.name}</h2>
-                <p className="detail__sub">{p.detailedDescription}</p>
+      {/* ── How We Work ── */}
+      <section className="how-we-work">
+        <div className="container">
+          <div className="section-label">How We Work</div>
+          <h2 className="section-title">Specialized solutions.<br />Scalable business.</h2>
+          <p className="section-lead">
+            We partner with companies that have scalable business models capable of generating millions in revenue.
+            Each division serves specific market segments with tailored digital marketing strategies.
+          </p>
+          <div className="work-grid">
+            <div className="work-card" style={{ '--accent': '#FF8C42' }}>
+              <div className="work-card__icon">{Icons.rocket}</div>
+              <h3 className="work-card__title">Lead Accelerator</h3>
+              <p className="work-card__segment">B2C Lead Generation & Sales</p>
+              <p className="work-card__description">
+                Full-funnel system for B2C businesses seeking qualified leads and direct sales.
+                Our integrated approach combines AI-powered lead generation with our internal contact center
+                for phone-based conversion, ensuring maximum ROI.
+              </p>
+              <div className="work-card__tags">
+                <span>Full Funnel</span>
+                <span>AI Chatbot</span>
+                <span>Contact Center</span>
               </div>
             </div>
-            <div className="detail__services">
-              {p.services.map((s, i) => (
-                <div key={i} className="detail__service">
-                  <h4>{s.title}</h4>
-                  <p>{s.description}</p>
-                </div>
-              ))}
+
+            <div className="work-card" style={{ '--accent': '#4ECDC4' }}>
+              <div className="work-card__icon">{Icons.search}</div>
+              <h3 className="work-card__title">Search Booster</h3>
+              <p className="work-card__segment">High-Volume Search Traffic</p>
+              <p className="work-card__description">
+                For businesses targeting massive search traffic volumes. As top partners with Yahoo! and Google,
+                we deliver premium quality search traffic at scale through our proprietary technology.
+              </p>
+              <div className="work-card__tags">
+                <span>Yahoo! Partner</span>
+                <span>Google Partner</span>
+                <span>High Volume</span>
+              </div>
             </div>
-            <div className="detail__stats">
-              {p.stats.map((s, i) => (
-                <div key={i} className="detail__stat">
-                  <span className="detail__stat-val">{s.value}</span>
-                  <span className="detail__stat-label">{s.label}</span>
-                </div>
-              ))}
+
+            <div className="work-card" style={{ '--accent': '#1A365D' }}>
+              <div className="work-card__icon">{Icons.cart}</div>
+              <h3 className="work-card__title">Cleobi</h3>
+              <p className="work-card__segment">E-Commerce B2C</p>
+              <p className="work-card__description">
+                Boost your e-commerce sales through optimized Google Shopping campaigns.
+                Our performance-based approach means we only succeed when you make sales,
+                perfectly aligning our interests with yours.
+              </p>
+              <div className="work-card__tags">
+                <span>Google Shopping</span>
+                <span>Performance-Based</span>
+                <span>E-Commerce</span>
+              </div>
             </div>
-            <div className="detail__cta">
-              {p.website ? (
-                <a href={p.website} target="_blank" rel="noopener noreferrer" className="btn btn--accent">
-                  Visit {p.name}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                </a>
-              ) : (
-                <button className="btn btn--outline" onClick={() => scrollTo('projects')}>Back to Projects</button>
-              )}
+
+            <div className="work-card" style={{ '--accent': '#8B5CF6' }}>
+              <div className="work-card__icon">{Icons.sparkles}</div>
+              <h3 className="work-card__title">Miriade.ai</h3>
+              <p className="work-card__segment">B2B Outreach Platform</p>
+              <p className="work-card__description">
+                Create real business opportunities for B2B companies through our AI-powered outreach platform.
+                Integrates data enrichment with multi-channel outreach (email & LinkedIn) to generate qualified meetings.
+              </p>
+              <div className="work-card__tags">
+                <span>Data Enrichment</span>
+                <span>Email + LinkedIn</span>
+                <span>AI-Powered</span>
+              </div>
             </div>
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
+
+      {/* ── Why Partner With Us ── */}
+      <section className="partnership">
+        <div className="container">
+          <div className="partnership__content">
+            <div className="partnership__header">
+              <div className="section-label">Our Approach</div>
+              <h2 className="section-title">Why Partner With Us</h2>
+              <p className="partnership__lead">
+                We don't work on a traditional client-supplier model. We build long-term partnerships
+                with ambitious brands ready to share million-dollar business opportunities.
+              </p>
+            </div>
+
+            <div className="partnership__features">
+              <div className="partnership__feature">
+                <div className="partnership__feature-icon">{Icons.handshake}</div>
+                <h3>True Partnership Model</h3>
+                <p>We're not vendors — we're partners. Success is shared, risks are shared, growth is shared.</p>
+              </div>
+              <div className="partnership__feature">
+                <div className="partnership__feature-icon">{Icons.target}</div>
+                <h3>Million-Dollar Mindset</h3>
+                <p>We only engage with businesses capable of generating millions in revenue. Scalability is our foundation.</p>
+              </div>
+              <div className="partnership__feature">
+                <div className="partnership__feature-icon">{Icons.lightbulb}</div>
+                <h3>Long-Term Vision</h3>
+                <p>Quick wins don't interest us. We build partnerships that compound value over years, not months.</p>
+              </div>
+            </div>
+
+            <div className="partnership__brands">
+              <h3>Trusted by Industry Leaders</h3>
+              <p className="partnership__brands-text">
+                Our most successful active partnerships include <strong>Google</strong>, <strong>Yahoo!</strong>,
+                <strong>eBay</strong>, and <strong>Eolo</strong>. If you're a major brand interested in a similar partnership model,
+                we'd love to hear from you.
+              </p>
+              <a href="#contact" className="btn btn--primary">Get in Touch →</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Timeline ── */}
       <section className="timeline">

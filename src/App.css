@@ -551,6 +551,9 @@
   color: var(--accent);
   transition: gap var(--transition-fast), opacity var(--transition-fast);
   padding: 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 .project-card__btn:hover { gap: .75rem; opacity: .8; }
 
@@ -631,6 +634,198 @@
 }
 
 .detail__cta { text-align: center; }
+
+/* ═══════════════════════════════════════════
+   How We Work
+   ═══════════════════════════════════════════ */
+.how-we-work {
+  padding: 7rem 0;
+  background: var(--light);
+}
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.work-card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  transition: all var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+.work-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-medium);
+}
+.work-card:hover::before {
+  transform: scaleX(1);
+}
+.work-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+}
+.work-card__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.work-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+.work-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+.work-card__segment {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+.work-card__description {
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.work-card__tags span {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   Partnership
+   ═══════════════════════════════════════════ */
+.partnership {
+  padding: 7rem 0;
+  background: var(--dark);
+  color: #fff;
+}
+.partnership__content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.partnership__header {
+  margin-bottom: 4rem;
+}
+.partnership .section-label {
+  color: var(--primary);
+}
+.partnership .section-title {
+  color: #fff;
+}
+.partnership__lead {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.partnership__features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  text-align: left;
+}
+.partnership__feature {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all var(--transition-medium);
+}
+.partnership__feature:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+.partnership__feature-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 140, 66, 0.15);
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+.partnership__feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.partnership__feature h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+.partnership__feature p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.partnership__brands {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-align: center;
+}
+.partnership__brands h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.partnership__brands-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.partnership__brands-text strong {
+  color: #fff;
+  font-weight: 600;
+}
 
 /* ═══════════════════════════════════════════
    Timeline
