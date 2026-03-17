@@ -260,10 +260,15 @@
 .partners__item {
   font-family: var(--font-heading);
   font-size: .85rem; font-weight: 600;
-  color: rgba(255,255,255,.25);
+  background: linear-gradient(135deg, #00F0FF 0%, #8B5CF6 50%, #FF10F0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: .06em;
   text-transform: uppercase;
   white-space: nowrap;
+  opacity: 0.75;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
 }
 @keyframes scroll {
   to { transform: translateX(-50%); }
