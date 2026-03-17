@@ -198,68 +198,104 @@ function AIDashboard() {
 
   return (
     <div className="hero__dashboard">
-      {/* AI Processing */}
-      <div className="ai-card">
-        <div className="ai-card__header">
-          <div className="ai-card__icon">⚡</div>
-          <div className="ai-card__label">AI Processing</div>
+      {/* Lead Accelerator */}
+      <div className="project-dash" data-project="lead-accelerator">
+        <div className="project-dash__header">
+          <div className="project-dash__icon">{Icons.rocket}</div>
+          <h3 className="project-dash__name">Lead Accelerator</h3>
         </div>
-        <div className="ai-card__value">{metrics.processing}%</div>
-        <div className="ai-card__bar">
-          <div
-            className="ai-card__bar-fill ai-card__bar-fill--primary"
-            style={{ width: `${metrics.processing}%` }}
-          />
+        <div className="project-dash__metrics">
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="1247" />
+            </div>
+            <div className="project-dash__label">Leads</div>
+          </div>
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="89" />
+            </div>
+            <div className="project-dash__label">Contracts</div>
+          </div>
         </div>
-        <div className="ai-card__pulse" />
+        <div className="project-dash__bar">
+          <div className="project-dash__bar-fill" style={{ width: '72%' }} />
+        </div>
       </div>
 
-      {/* Confidence Score */}
-      <div className="ai-card">
-        <div className="ai-card__header">
-          <div className="ai-card__icon">🎯</div>
-          <div className="ai-card__label">Confidence</div>
+      {/* Search Booster */}
+      <div className="project-dash" data-project="search-booster">
+        <div className="project-dash__header">
+          <div className="project-dash__icon">{Icons.search}</div>
+          <h3 className="project-dash__name">Search Booster</h3>
         </div>
-        <div className="ai-card__value">{metrics.confidence}%</div>
-        <div className="ai-card__bar">
-          <div
-            className="ai-card__bar-fill ai-card__bar-fill--accent"
-            style={{ width: `${metrics.confidence}%` }}
-          />
+        <div className="project-dash__metrics">
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="10" suffix=".2M" />
+            </div>
+            <div className="project-dash__label">Searches</div>
+          </div>
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="847" suffix="K" />
+            </div>
+            <div className="project-dash__label">Clicks</div>
+          </div>
         </div>
-        <div className="ai-card__pulse" />
+        <div className="project-dash__bar">
+          <div className="project-dash__bar-fill" style={{ width: '85%' }} />
+        </div>
       </div>
 
-      {/* Live Leads */}
-      <div className="ai-card">
-        <div className="ai-card__header">
-          <div className="ai-card__icon">📊</div>
-          <div className="ai-card__label">Leads Today</div>
+      {/* Cleobi */}
+      <div className="project-dash" data-project="cleobi">
+        <div className="project-dash__header">
+          <div className="project-dash__icon">{Icons.cart}</div>
+          <h3 className="project-dash__name">Cleobi</h3>
         </div>
-        <div className="ai-card__value">
-          <AnimatedNumber target={metrics.leads.toString()} suffix="" />
+        <div className="project-dash__metrics">
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="124" suffix="K" />
+            </div>
+            <div className="project-dash__label">Clicks</div>
+          </div>
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="12" suffix=".3%" />
+            </div>
+            <div className="project-dash__label">CVR</div>
+          </div>
         </div>
-        <div className="ai-card__trend">
-          <span className="ai-card__trend-icon">↗</span>
-          <span className="ai-card__trend-text">+24% vs yesterday</span>
+        <div className="project-dash__bar">
+          <div className="project-dash__bar-fill" style={{ width: '68%' }} />
         </div>
-        <div className="ai-card__pulse" />
       </div>
 
-      {/* Efficiency */}
-      <div className="ai-card">
-        <div className="ai-card__header">
-          <div className="ai-card__icon">🚀</div>
-          <div className="ai-card__label">ROI Boost</div>
+      {/* Miriade */}
+      <div className="project-dash" data-project="miriade">
+        <div className="project-dash__header">
+          <div className="project-dash__icon">{Icons.sparkles}</div>
+          <h3 className="project-dash__name">Miriade</h3>
         </div>
-        <div className="ai-card__value">
-          <AnimatedNumber target={metrics.efficiency.toString()} suffix="%" />
+        <div className="project-dash__metrics">
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="45" suffix=".2K" />
+            </div>
+            <div className="project-dash__label">Sent</div>
+          </div>
+          <div className="project-dash__metric">
+            <div className="project-dash__value">
+              <AnimatedNumber target="3" suffix=".8K" />
+            </div>
+            <div className="project-dash__label">Replies</div>
+          </div>
         </div>
-        <div className="ai-card__trend">
-          <span className="ai-card__trend-icon">↗</span>
-          <span className="ai-card__trend-text">Above industry avg</span>
+        <div className="project-dash__bar">
+          <div className="project-dash__bar-fill" style={{ width: '79%' }} />
         </div>
-        <div className="ai-card__pulse" />
       </div>
     </div>
   )
@@ -541,116 +577,6 @@ function Home() {
               <div className="about__icon">{Icons.handshake}</div>
               <h3>Strategic Partnerships</h3>
               <p>Trusted by industry leaders including Yahoo!, eBay, Google, and Eolo.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Project Dashboards ── */}
-      <section className="project-dashboards">
-        <div className="container">
-          <div className="section-label">Live Performance</div>
-          <h2 className="section-title">Real-time project metrics</h2>
-
-          <div className="dashboards-grid">
-            {/* Lead Accelerator */}
-            <div className="project-dash" data-project="lead-accelerator">
-              <div className="project-dash__header">
-                <div className="project-dash__icon">{Icons.rocket}</div>
-                <h3 className="project-dash__name">Lead Accelerator</h3>
-              </div>
-              <div className="project-dash__metrics">
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="1247" />
-                  </div>
-                  <div className="project-dash__label">Leads Generated</div>
-                </div>
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="89" />
-                  </div>
-                  <div className="project-dash__label">Contracts Closed</div>
-                </div>
-              </div>
-              <div className="project-dash__bar">
-                <div className="project-dash__bar-fill" style={{ width: '72%' }} />
-              </div>
-            </div>
-
-            {/* Search Booster */}
-            <div className="project-dash" data-project="search-booster">
-              <div className="project-dash__header">
-                <div className="project-dash__icon">{Icons.search}</div>
-                <h3 className="project-dash__name">Search Booster</h3>
-              </div>
-              <div className="project-dash__metrics">
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="10" suffix=".2M" />
-                  </div>
-                  <div className="project-dash__label">Monthly Searches</div>
-                </div>
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="847" suffix="K" />
-                  </div>
-                  <div className="project-dash__label">Total Clicks</div>
-                </div>
-              </div>
-              <div className="project-dash__bar">
-                <div className="project-dash__bar-fill" style={{ width: '85%' }} />
-              </div>
-            </div>
-
-            {/* Cleobi */}
-            <div className="project-dash" data-project="cleobi">
-              <div className="project-dash__header">
-                <div className="project-dash__icon">{Icons.cart}</div>
-                <h3 className="project-dash__name">Cleobi</h3>
-              </div>
-              <div className="project-dash__metrics">
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="124" suffix="K" />
-                  </div>
-                  <div className="project-dash__label">Total Clicks</div>
-                </div>
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="12" suffix=".3%" />
-                  </div>
-                  <div className="project-dash__label">Conversion Rate</div>
-                </div>
-              </div>
-              <div className="project-dash__bar">
-                <div className="project-dash__bar-fill" style={{ width: '68%' }} />
-              </div>
-            </div>
-
-            {/* Miriade */}
-            <div className="project-dash" data-project="miriade">
-              <div className="project-dash__header">
-                <div className="project-dash__icon">{Icons.sparkles}</div>
-                <h3 className="project-dash__name">Miriade</h3>
-              </div>
-              <div className="project-dash__metrics">
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="45" suffix=".2K" />
-                  </div>
-                  <div className="project-dash__label">Emails Sent</div>
-                </div>
-                <div className="project-dash__metric">
-                  <div className="project-dash__value">
-                    <AnimatedNumber target="3" suffix=".8K" />
-                  </div>
-                  <div className="project-dash__label">Responses</div>
-                </div>
-              </div>
-              <div className="project-dash__bar">
-                <div className="project-dash__bar-fill" style={{ width: '79%' }} />
-              </div>
             </div>
           </div>
         </div>

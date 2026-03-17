@@ -325,17 +325,12 @@
 .about__card p { color: var(--gray-500); line-height: 1.7; }
 
 /* ═══════════════════════════════════════════
-   Project Dashboards
+   Project Dashboards (in Hero)
    ═══════════════════════════════════════════ */
-.project-dashboards {
-  padding: 5rem 0;
-  background: var(--dark);
-}
-.dashboards-grid {
+.hero__dashboard {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
 }
 
 .project-dash {
@@ -806,7 +801,7 @@
   .ai-card__value { font-size: 1.75rem; }
   .btn { width: 100%; justify-content: center; max-width: 320px; }
 
-  .dashboards-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero__dashboard { grid-template-columns: 1fr; }
 
   .projects__grid { grid-template-columns: 1fr; }
 
