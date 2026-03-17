@@ -198,7 +198,7 @@ function AIDashboard() {
 
   return (
     <div className="hero__dashboard">
-      <h3 style={{ textAlign: 'center', color: 'rgba(255,255,255,0.9)', fontSize: '1.5rem', marginBottom: '2rem', fontWeight: '600' }}>I nostri numeri mensili</h3>
+      <h3 className="dashboard-title">Our Monthly Metrics</h3>
 
       {/* Lead Accelerator */}
       <div className="project-dash" data-project="lead-accelerator">

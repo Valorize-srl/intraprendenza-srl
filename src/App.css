@@ -338,6 +338,17 @@
   gap: 1.25rem;
 }
 
+.dashboard-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
 .project-dash {
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.06);
