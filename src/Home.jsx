@@ -336,6 +336,102 @@ function AnimatedNumber({ target, suffix = '' }) {
   return <span ref={ref}>{count}{suffix}</span>
 }
 
+/* ── Specializations Tabs ── */
+function SpecializationsTabs() {
+  const [activeTab, setActiveTab] = useState('b2c-lead-gen')
+
+  const specializations = {
+    'b2c-lead-gen': {
+      id: 'b2c-lead-gen',
+      title: 'B2C Lead Generation & Sales',
+      icon: Icons.rocket,
+      color: '#FF8C42',
+      description: 'Full-funnel system for B2C businesses seeking qualified leads and direct sales. Our integrated approach combines AI-powered lead generation with our internal contact center for phone-based conversion, ensuring maximum ROI.',
+      tags: ['Full Funnel', 'AI Chatbot', 'Contact Center'],
+      partners: ['Eolo']
+    },
+    'search-traffic': {
+      id: 'search-traffic',
+      title: 'High-Volume Search Traffic',
+      icon: Icons.search,
+      color: '#4ECDC4',
+      description: 'For businesses targeting massive search traffic volumes. As top partners with Yahoo! and Google, we deliver premium quality search traffic at scale.',
+      tags: ['Proprietary Tech', 'Multi-Platform'],
+      partners: ['Google', 'Yahoo!']
+    },
+    'ecommerce': {
+      id: 'ecommerce',
+      title: 'E-Commerce B2C',
+      icon: Icons.cart,
+      color: '#1A365D',
+      description: 'Boost e-commerce sales through optimized Google Shopping campaigns with performance-based revenue sharing.',
+      tags: ['Google Shopping', 'Rev-Share'],
+      partners: ['eBay', 'Awin', 'WebGains', 'Tradetracker']
+    },
+    'ai-b2b': {
+      id: 'ai-b2b',
+      title: 'AI B2B Outreach',
+      icon: Icons.sparkles,
+      color: '#8B5CF6',
+      description: 'Create real business opportunities for B2B companies through our AI-powered outreach platform. Integrates data enrichment with multi-channel outreach (email & LinkedIn) to generate qualified meetings.',
+      tags: ['Data Enrichment', 'Email + LinkedIn', 'AI-Powered'],
+      partners: ['Eolo', 'KPM Solutions', 'Pushloop']
+    }
+  }
+
+  const currentSpec = specializations[activeTab]
+
+  return (
+    <section className="how-we-work">
+      <div className="container">
+        <div className="section-label">How We Work</div>
+        <h2 className="section-title">Specialized solutions.<br />Scalable business.</h2>
+        <p className="section-lead">
+          We partner with companies that have scalable business models capable of generating millions in revenue.
+          Each specialization serves specific market segments with tailored digital marketing strategies.
+        </p>
+
+        {/* Tabs Navigation */}
+        <div className="spec-tabs">
+          {Object.values(specializations).map((spec) => (
+            <button
+              key={spec.id}
+              className={`spec-tab ${activeTab === spec.id ? 'spec-tab--active' : ''}`}
+              onClick={() => setActiveTab(spec.id)}
+              style={{ '--tab-color': spec.color }}
+            >
+              <span className="spec-tab__icon">{spec.icon}</span>
+              <span className="spec-tab__label">{spec.title}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content */}
+        <div className="spec-content" style={{ '--accent': currentSpec.color }}>
+          <div className="spec-content__header">
+            <div className="spec-content__icon">{currentSpec.icon}</div>
+            <h3 className="spec-content__title">{currentSpec.title}</h3>
+          </div>
+          <p className="spec-content__description">{currentSpec.description}</p>
+          <div className="spec-content__tags">
+            {currentSpec.tags.map((tag, i) => (
+              <span key={i} className="spec-content__tag">{tag}</span>
+            ))}
+          </div>
+          <div className="spec-content__partners">
+            <span className="spec-content__partners-label">Active Partners</span>
+            <div className="spec-content__partners-list">
+              {currentSpec.partners.map((partner, i) => (
+                <span key={i} className="partner-badge">{partner}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ── SVG Icons ── */
 const Icons = {
   rocket: (
@@ -619,115 +715,7 @@ function Home() {
       </section>
 
       {/* ── How We Work ── */}
-      <section className="how-we-work">
-        <div className="container">
-          <div className="section-label">How We Work</div>
-          <h2 className="section-title">Specialized solutions.<br />Scalable business.</h2>
-          <p className="section-lead">
-            We partner with companies that have scalable business models capable of generating millions in revenue.
-            Each specialization serves specific market segments with tailored digital marketing strategies.
-          </p>
-
-          {/* Bento Box Grid */}
-          <div className="bento-grid">
-            {/* Search Traffic - Tall */}
-            <div className="bento-card bento-card--tall" style={{ '--accent': '#4ECDC4' }}>
-              <div className="bento-card__inner">
-                <div className="bento-card__icon">{Icons.search}</div>
-                <h3 className="bento-card__title">High-Volume Search Traffic</h3>
-                <p className="bento-card__description">
-                  For businesses targeting massive search traffic volumes. As top partners with Yahoo! and Google,
-                  we deliver premium quality search traffic at scale.
-                </p>
-                <div className="bento-card__tags">
-                  <span>Proprietary Tech</span>
-                  <span>Multi-Platform</span>
-                </div>
-                <div className="bento-card__partners">
-                  <span className="bento-card__partners-label">Active Partners</span>
-                  <div className="bento-card__partners-list">
-                    <span className="partner-badge">Google</span>
-                    <span className="partner-badge">Yahoo!</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* B2C Lead Gen - Large Square */}
-            <div className="bento-card bento-card--large" style={{ '--accent': '#FF8C42' }}>
-              <div className="bento-card__inner">
-                <div className="bento-card__icon">{Icons.rocket}</div>
-                <h3 className="bento-card__title">B2C Lead Generation & Sales</h3>
-                <p className="bento-card__description">
-                  Full-funnel system for B2C businesses seeking qualified leads and direct sales.
-                  Our integrated approach combines AI-powered lead generation with our internal contact center
-                  for phone-based conversion, ensuring maximum ROI.
-                </p>
-                <div className="bento-card__tags">
-                  <span>Full Funnel</span>
-                  <span>AI Chatbot</span>
-                  <span>Contact Center</span>
-                </div>
-                <div className="bento-card__partners">
-                  <span className="bento-card__partners-label">Active Partners</span>
-                  <div className="bento-card__partners-list">
-                    <span className="partner-badge">Eolo</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* E-Commerce - Small */}
-            <div className="bento-card bento-card--small" style={{ '--accent': '#1A365D' }}>
-              <div className="bento-card__inner">
-                <div className="bento-card__icon">{Icons.cart}</div>
-                <h3 className="bento-card__title">E-Commerce B2C</h3>
-                <p className="bento-card__description">
-                  Boost e-commerce sales through optimized Google Shopping campaigns with performance-based revenue sharing.
-                </p>
-                <div className="bento-card__tags">
-                  <span>Google Shopping</span>
-                  <span>Rev-Share</span>
-                </div>
-                <div className="bento-card__partners">
-                  <span className="bento-card__partners-label">Active Partners</span>
-                  <div className="bento-card__partners-list">
-                    <span className="partner-badge">eBay</span>
-                    <span className="partner-badge">Awin</span>
-                    <span className="partner-badge">WebGains</span>
-                    <span className="partner-badge">Tradetracker</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* AI B2B - Wide */}
-            <div className="bento-card bento-card--wide" style={{ '--accent': '#8B5CF6' }}>
-              <div className="bento-card__inner">
-                <div className="bento-card__icon">{Icons.sparkles}</div>
-                <h3 className="bento-card__title">AI B2B Outreach</h3>
-                <p className="bento-card__description">
-                  Create real business opportunities for B2B companies through our AI-powered outreach platform.
-                  Integrates data enrichment with multi-channel outreach (email & LinkedIn) to generate qualified meetings.
-                </p>
-                <div className="bento-card__tags">
-                  <span>Data Enrichment</span>
-                  <span>Email + LinkedIn</span>
-                  <span>AI-Powered</span>
-                </div>
-                <div className="bento-card__partners">
-                  <span className="bento-card__partners-label">Active Partners</span>
-                  <div className="bento-card__partners-list">
-                    <span className="partner-badge">Eolo</span>
-                    <span className="partner-badge">KPM Solutions</span>
-                    <span className="partner-badge">Pushloop</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SpecializationsTabs />
 
       {/* ── Why Partner With Us ── */}
       <section className="partnership">
