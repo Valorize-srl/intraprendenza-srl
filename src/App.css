@@ -325,30 +325,135 @@
 .about__card p { color: var(--gray-500); line-height: 1.7; }
 
 /* ═══════════════════════════════════════════
-   Numbers
+   Project Dashboards
    ═══════════════════════════════════════════ */
-.numbers {
+.project-dashboards {
   padding: 5rem 0;
   background: var(--dark);
 }
-.numbers__grid {
+.dashboards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  text-align: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
-.numbers__value {
+
+.project-dash {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+.project-dash:hover {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.12);
+  transform: translateY(-4px);
+}
+
+.project-dash__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.project-dash__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+.project-dash__icon svg {
+  width: 20px;
+  height: 20px;
+}
+.project-dash__name {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.project-dash__metrics {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.project-dash__metric {
+  flex: 1;
+}
+.project-dash__value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: .25rem;
+  line-height: 1;
+  margin-bottom: .35rem;
 }
-.numbers__label {
-  font-size: .85rem; font-weight: 500;
-  color: rgba(255,255,255,.4);
+.project-dash__label {
+  font-size: .75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.45);
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
+}
+
+.project-dash__bar {
+  height: 6px;
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.project-dash__bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Project-specific colors */
+.project-dash[data-project="lead-accelerator"] .project-dash__icon {
+  background: rgba(255, 140, 66, 0.15);
+  color: var(--color-lead-accelerator);
+}
+.project-dash[data-project="lead-accelerator"] .project-dash__bar-fill {
+  background: linear-gradient(90deg, var(--color-lead-accelerator), #FFB87A);
+  box-shadow: 0 0 20px rgba(255, 140, 66, 0.4);
+}
+
+.project-dash[data-project="search-booster"] .project-dash__icon {
+  background: rgba(78, 205, 196, 0.15);
+  color: var(--color-search-booster);
+}
+.project-dash[data-project="search-booster"] .project-dash__bar-fill {
+  background: linear-gradient(90deg, var(--color-search-booster), #6FE3DA);
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.4);
+}
+
+.project-dash[data-project="cleobi"] .project-dash__icon {
+  background: rgba(26, 54, 93, 0.35);
+  color: #5B8FCF;
+}
+.project-dash[data-project="cleobi"] .project-dash__bar-fill {
+  background: linear-gradient(90deg, #1A365D, #2D5A9E);
+  box-shadow: 0 0 20px rgba(45, 90, 158, 0.4);
+}
+
+.project-dash[data-project="miriade"] .project-dash__icon {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--color-miriade);
+}
+.project-dash[data-project="miriade"] .project-dash__bar-fill {
+  background: linear-gradient(90deg, var(--color-miriade), #A78BFA);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
 }
 
 /* ═══════════════════════════════════════════
@@ -701,7 +806,7 @@
   .ai-card__value { font-size: 1.75rem; }
   .btn { width: 100%; justify-content: center; max-width: 320px; }
 
-  .numbers__grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboards-grid { grid-template-columns: repeat(2, 1fr); }
 
   .projects__grid { grid-template-columns: 1fr; }
 
