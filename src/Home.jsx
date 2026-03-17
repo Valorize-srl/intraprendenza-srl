@@ -2,86 +2,6 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import './App.css'
 
-/* ── Particle Canvas ── */
-function ParticleHero() {
-  const canvasRef = useRef(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    let animationId
-    let particles = []
-    const colors = ['#FF8C42', '#4ECDC4', '#8B5CF6', '#7E2954']
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-    window.addEventListener('resize', resize)
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
-        this.vx = (Math.random() - 0.5) * 0.4
-        this.vy = (Math.random() - 0.5) * 0.4
-        this.radius = Math.random() * 2 + 0.5
-        this.color = colors[Math.floor(Math.random() * colors.length)]
-        this.opacity = Math.random() * 0.5 + 0.2
-      }
-      update() {
-        this.x += this.vx
-        this.y += this.vy
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1
-      }
-      draw() {
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fillStyle = this.color
-        ctx.globalAlpha = this.opacity
-        ctx.fill()
-        ctx.globalAlpha = 1
-      }
-    }
-
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 120)
-    for (let i = 0; i < count; i++) particles.push(new Particle())
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      particles.forEach(p => { p.update(); p.draw() })
-      // draw lines
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x
-          const dy = particles[i].y - particles[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 150) {
-            ctx.beginPath()
-            ctx.moveTo(particles[i].x, particles[i].y)
-            ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(255,255,255,${0.06 * (1 - dist / 150)})`
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
-        }
-      }
-      animationId = requestAnimationFrame(animate)
-    }
-    animate()
-
-    return () => {
-      cancelAnimationFrame(animationId)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
-
-  return <canvas ref={canvasRef} className="hero-canvas" />
-}
-
 /* ── Animated Counter ── */
 function AnimatedNumber({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
@@ -299,22 +219,41 @@ function Home() {
       </header>
 
       {/* ── Hero ── */}
-      <section className="hero">
-        <ParticleHero />
-        <div className="hero__overlay" />
-        <div className="container hero__content">
-          <span className="hero__badge">Performance Marketing &middot; Since 2018</span>
-          <h1 className="hero__title">
-            We turn data into<br />
-            <span className="hero__gradient">measurable growth</span>
-          </h1>
-          <p className="hero__sub">
-            From AI-powered lead generation to proprietary search technology,
-            we build the infrastructure that drives digital performance at scale.
-          </p>
-          <div className="hero__actions">
-            <a href="#projects" className="btn btn--primary">Our Projects</a>
-            <a href="#about" className="btn btn--ghost">About Us</a>
+      <section className="hero hero--split">
+        <div className="container">
+          <div className="hero__grid">
+            <div className="hero__left">
+              <span className="hero__badge">Est. 2018</span>
+              <h1 className="hero__title">
+                Data-driven growth.<br />
+                <span className="hero__gradient">AI-powered results.</span>
+              </h1>
+              <p className="hero__sub">
+                We build proprietary technology that turns traffic into revenue.
+                From search engines to AI outreach platforms.
+              </p>
+              <a href="#projects" className="btn btn--primary">View Projects →</a>
+            </div>
+            <div className="hero__right">
+              <div className="hero__stats-grid">
+                <div className="hero__stat-box">
+                  <span className="hero__stat-num">10M+</span>
+                  <span className="hero__stat-label">Searches/mo</span>
+                </div>
+                <div className="hero__stat-box">
+                  <span className="hero__stat-num">7+</span>
+                  <span className="hero__stat-label">Platforms</span>
+                </div>
+                <div className="hero__stat-box">
+                  <span className="hero__stat-num">#1</span>
+                  <span className="hero__stat-label">Eolo Partner</span>
+                </div>
+                <div className="hero__stat-box">
+                  <span className="hero__stat-num">AI</span>
+                  <span className="hero__stat-label">First</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
