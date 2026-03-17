@@ -473,7 +473,7 @@
 .projects { padding: 7rem 0; background: var(--light-secondary); }
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
