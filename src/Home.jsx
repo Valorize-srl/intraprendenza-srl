@@ -31,10 +31,18 @@ function AIGridBackground() {
         this.y = Math.random() * canvas.height
         this.vx = (Math.random() - 0.5) * 0.3
         this.vy = (Math.random() - 0.5) * 0.3
-        this.radius = Math.random() * 3 + 3
-        this.opacity = Math.random() * 0.4 + 0.5
+        this.radius = Math.random() * 4 + 4
+        this.opacity = Math.random() * 0.3 + 0.7
         this.pulseSpeed = Math.random() * 0.02 + 0.01
         this.pulsePhase = Math.random() * Math.PI * 2
+        // Random neon color
+        const colors = [
+          { r: 0, g: 240, b: 255 },    // Cyan
+          { r: 255, g: 16, b: 240 },   // Magenta
+          { r: 139, g: 92, b: 246 },   // Purple
+          { r: 57, g: 255, b: 20 }     // Lime
+        ]
+        this.color = colors[Math.floor(Math.random() * colors.length)]
       }
       update() {
         this.x += this.vx
@@ -44,21 +52,28 @@ function AIGridBackground() {
         this.pulsePhase += this.pulseSpeed
       }
       draw() {
-        const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7
-        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 4)
-        gradient.addColorStop(0, `rgba(126, 41, 84, ${this.opacity * pulse})`)
-        gradient.addColorStop(0.4, `rgba(255, 140, 66, ${this.opacity * pulse * 0.7})`)
-        gradient.addColorStop(1, 'rgba(126, 41, 84, 0)')
+        const pulse = Math.sin(this.pulsePhase) * 0.4 + 0.6
+        const { r, g, b } = this.color
+
+        // Outer glow
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 5)
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${this.opacity * pulse})`)
+        gradient.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, ${this.opacity * pulse * 0.5})`)
+        gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`)
 
         ctx.fillStyle = gradient
         ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2)
+        ctx.arc(this.x, this.y, this.radius * 5, 0, Math.PI * 2)
         ctx.fill()
 
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * pulse * 0.9})`
+        // Inner core with shadow
+        ctx.shadowBlur = 15
+        ctx.shadowColor = `rgba(${r}, ${g}, ${b}, ${pulse})`
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.opacity * pulse})`
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fill()
+        ctx.shadowBlur = 0
       }
     }
 
@@ -74,7 +89,7 @@ function AIGridBackground() {
         ctx.beginPath()
         ctx.moveTo(x, 0)
         ctx.lineTo(x, canvas.height)
-        ctx.strokeStyle = 'rgba(126, 41, 84, 0.12)'
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)'
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -83,7 +98,7 @@ function AIGridBackground() {
         ctx.beginPath()
         ctx.moveTo(0, y)
         ctx.lineTo(canvas.width, y)
-        ctx.strokeStyle = 'rgba(126, 41, 84, 0.12)'
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)'
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -93,8 +108,14 @@ function AIGridBackground() {
         for (let y = 0; y < canvas.height; y += gridSize) {
           ctx.beginPath()
           ctx.arc(x, y, dotRadius, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(255, 140, 66, 0.4)'
+
+          // Glow effect for dots
+          ctx.shadowBlur = 8
+          ctx.shadowColor = 'rgba(255, 16, 240, 0.8)'
+          ctx.fillStyle = 'rgba(255, 16, 240, 0.7)'
           ctx.fill()
+
+          ctx.shadowBlur = 0
         }
       }
     }
@@ -119,13 +140,23 @@ function AIGridBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy)
 
           if (dist < 250) {
-            const opacity = (1 - dist / 250) * 0.35
+            const opacity = (1 - dist / 250) * 0.6
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(255, 140, 66, ${opacity})`
-            ctx.lineWidth = 1.5
+
+            // Neon gradient line
+            const gradient = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y)
+            gradient.addColorStop(0, `rgba(0, 240, 255, ${opacity})`)
+            gradient.addColorStop(0.5, `rgba(139, 92, 246, ${opacity})`)
+            gradient.addColorStop(1, `rgba(255, 16, 240, ${opacity})`)
+
+            ctx.strokeStyle = gradient
+            ctx.lineWidth = 2
+            ctx.shadowBlur = 4
+            ctx.shadowColor = `rgba(139, 92, 246, ${opacity * 0.8})`
             ctx.stroke()
+            ctx.shadowBlur = 0
           }
         }
       }
