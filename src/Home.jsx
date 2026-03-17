@@ -31,8 +31,8 @@ function AIGridBackground() {
         this.y = Math.random() * canvas.height
         this.vx = (Math.random() - 0.5) * 0.3
         this.vy = (Math.random() - 0.5) * 0.3
-        this.radius = Math.random() * 3 + 2
-        this.opacity = Math.random() * 0.5 + 0.3
+        this.radius = Math.random() * 3 + 3
+        this.opacity = Math.random() * 0.4 + 0.5
         this.pulseSpeed = Math.random() * 0.02 + 0.01
         this.pulsePhase = Math.random() * Math.PI * 2
       }
@@ -45,17 +45,17 @@ function AIGridBackground() {
       }
       draw() {
         const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7
-        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 3)
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 4)
         gradient.addColorStop(0, `rgba(126, 41, 84, ${this.opacity * pulse})`)
-        gradient.addColorStop(0.5, `rgba(255, 140, 66, ${this.opacity * pulse * 0.5})`)
+        gradient.addColorStop(0.4, `rgba(255, 140, 66, ${this.opacity * pulse * 0.7})`)
         gradient.addColorStop(1, 'rgba(126, 41, 84, 0)')
 
         ctx.fillStyle = gradient
         ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2)
+        ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2)
         ctx.fill()
 
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * pulse})`
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * pulse * 0.9})`
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fill()
@@ -74,7 +74,7 @@ function AIGridBackground() {
         ctx.beginPath()
         ctx.moveTo(x, 0)
         ctx.lineTo(x, canvas.height)
-        ctx.strokeStyle = 'rgba(126, 41, 84, 0.03)'
+        ctx.strokeStyle = 'rgba(126, 41, 84, 0.12)'
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -83,7 +83,7 @@ function AIGridBackground() {
         ctx.beginPath()
         ctx.moveTo(0, y)
         ctx.lineTo(canvas.width, y)
-        ctx.strokeStyle = 'rgba(126, 41, 84, 0.03)'
+        ctx.strokeStyle = 'rgba(126, 41, 84, 0.12)'
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -93,7 +93,7 @@ function AIGridBackground() {
         for (let y = 0; y < canvas.height; y += gridSize) {
           ctx.beginPath()
           ctx.arc(x, y, dotRadius, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(255, 140, 66, 0.15)'
+          ctx.fillStyle = 'rgba(255, 140, 66, 0.4)'
           ctx.fill()
         }
       }
@@ -119,12 +119,12 @@ function AIGridBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy)
 
           if (dist < 250) {
-            const opacity = (1 - dist / 250) * 0.15
+            const opacity = (1 - dist / 250) * 0.35
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
             ctx.strokeStyle = `rgba(255, 140, 66, ${opacity})`
-            ctx.lineWidth = 1
+            ctx.lineWidth = 1.5
             ctx.stroke()
           }
         }
