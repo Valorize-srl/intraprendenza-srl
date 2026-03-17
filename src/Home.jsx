@@ -2,6 +2,238 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import './App.css'
 
+/* ── AI Neural Grid Background ── */
+function AIGridBackground() {
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    let animationId
+    let nodes = []
+
+    const resize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    // Grid settings
+    const gridSize = 50
+    const dotRadius = 1.5
+
+    // Neural network nodes
+    class Node {
+      constructor() {
+        this.x = Math.random() * canvas.width
+        this.y = Math.random() * canvas.height
+        this.vx = (Math.random() - 0.5) * 0.3
+        this.vy = (Math.random() - 0.5) * 0.3
+        this.radius = Math.random() * 3 + 2
+        this.opacity = Math.random() * 0.5 + 0.3
+        this.pulseSpeed = Math.random() * 0.02 + 0.01
+        this.pulsePhase = Math.random() * Math.PI * 2
+      }
+      update() {
+        this.x += this.vx
+        this.y += this.vy
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1
+        this.pulsePhase += this.pulseSpeed
+      }
+      draw() {
+        const pulse = Math.sin(this.pulsePhase) * 0.3 + 0.7
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 3)
+        gradient.addColorStop(0, `rgba(126, 41, 84, ${this.opacity * pulse})`)
+        gradient.addColorStop(0.5, `rgba(255, 140, 66, ${this.opacity * pulse * 0.5})`)
+        gradient.addColorStop(1, 'rgba(126, 41, 84, 0)')
+
+        ctx.fillStyle = gradient
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2)
+        ctx.fill()
+
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * pulse})`
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        ctx.fill()
+      }
+    }
+
+    // Create nodes
+    const nodeCount = Math.min(Math.floor((canvas.width * canvas.height) / 20000), 30)
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push(new Node())
+    }
+
+    const drawGrid = () => {
+      // Vertical lines
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath()
+        ctx.moveTo(x, 0)
+        ctx.lineTo(x, canvas.height)
+        ctx.strokeStyle = 'rgba(126, 41, 84, 0.03)'
+        ctx.lineWidth = 1
+        ctx.stroke()
+      }
+      // Horizontal lines
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath()
+        ctx.moveTo(0, y)
+        ctx.lineTo(canvas.width, y)
+        ctx.strokeStyle = 'rgba(126, 41, 84, 0.03)'
+        ctx.lineWidth = 1
+        ctx.stroke()
+      }
+
+      // Grid dots at intersections
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        for (let y = 0; y < canvas.height; y += gridSize) {
+          ctx.beginPath()
+          ctx.arc(x, y, dotRadius, 0, Math.PI * 2)
+          ctx.fillStyle = 'rgba(255, 140, 66, 0.15)'
+          ctx.fill()
+        }
+      }
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Draw grid
+      drawGrid()
+
+      // Update and draw nodes
+      nodes.forEach(node => {
+        node.update()
+        node.draw()
+      })
+
+      // Draw connections between nodes
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x
+          const dy = nodes[i].y - nodes[j].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+
+          if (dist < 250) {
+            const opacity = (1 - dist / 250) * 0.15
+            ctx.beginPath()
+            ctx.moveTo(nodes[i].x, nodes[i].y)
+            ctx.lineTo(nodes[j].x, nodes[j].y)
+            ctx.strokeStyle = `rgba(255, 140, 66, ${opacity})`
+            ctx.lineWidth = 1
+            ctx.stroke()
+          }
+        }
+      }
+
+      animationId = requestAnimationFrame(animate)
+    }
+    animate()
+
+    return () => {
+      cancelAnimationFrame(animationId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+
+  return <canvas ref={canvasRef} className="hero-canvas" />
+}
+
+/* ── AI Dashboard Cards ── */
+function AIDashboard() {
+  const [metrics, setMetrics] = useState({
+    processing: 0,
+    confidence: 0,
+    leads: 0,
+    efficiency: 0
+  })
+
+  useEffect(() => {
+    // Animate metrics on mount
+    const timer = setTimeout(() => {
+      setMetrics({
+        processing: 98,
+        confidence: 94,
+        leads: 847,
+        efficiency: 312
+      })
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <div className="hero__dashboard">
+      {/* AI Processing */}
+      <div className="ai-card">
+        <div className="ai-card__header">
+          <div className="ai-card__icon">⚡</div>
+          <div className="ai-card__label">AI Processing</div>
+        </div>
+        <div className="ai-card__value">{metrics.processing}%</div>
+        <div className="ai-card__bar">
+          <div
+            className="ai-card__bar-fill ai-card__bar-fill--primary"
+            style={{ width: `${metrics.processing}%` }}
+          />
+        </div>
+        <div className="ai-card__pulse" />
+      </div>
+
+      {/* Confidence Score */}
+      <div className="ai-card">
+        <div className="ai-card__header">
+          <div className="ai-card__icon">🎯</div>
+          <div className="ai-card__label">Confidence</div>
+        </div>
+        <div className="ai-card__value">{metrics.confidence}%</div>
+        <div className="ai-card__bar">
+          <div
+            className="ai-card__bar-fill ai-card__bar-fill--accent"
+            style={{ width: `${metrics.confidence}%` }}
+          />
+        </div>
+        <div className="ai-card__pulse" />
+      </div>
+
+      {/* Live Leads */}
+      <div className="ai-card">
+        <div className="ai-card__header">
+          <div className="ai-card__icon">📊</div>
+          <div className="ai-card__label">Leads Today</div>
+        </div>
+        <div className="ai-card__value">
+          <AnimatedNumber target={metrics.leads.toString()} suffix="" />
+        </div>
+        <div className="ai-card__trend">
+          <span className="ai-card__trend-icon">↗</span>
+          <span className="ai-card__trend-text">+24% vs yesterday</span>
+        </div>
+        <div className="ai-card__pulse" />
+      </div>
+
+      {/* Efficiency */}
+      <div className="ai-card">
+        <div className="ai-card__header">
+          <div className="ai-card__icon">🚀</div>
+          <div className="ai-card__label">ROI Boost</div>
+        </div>
+        <div className="ai-card__value">
+          <AnimatedNumber target={metrics.efficiency.toString()} suffix="%" />
+        </div>
+        <div className="ai-card__trend">
+          <span className="ai-card__trend-icon">↗</span>
+          <span className="ai-card__trend-text">Above industry avg</span>
+        </div>
+        <div className="ai-card__pulse" />
+      </div>
+    </div>
+  )
+}
+
 /* ── Animated Counter ── */
 function AnimatedNumber({ target, suffix = '' }) {
   const [count, setCount] = useState(0)
@@ -220,7 +452,9 @@ function Home() {
 
       {/* ── Hero ── */}
       <section className="hero hero--split">
-        <div className="container">
+        <AIGridBackground />
+        <div className="hero__overlay" />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="hero__grid">
             <div className="hero__left">
               <span className="hero__badge">Est. 2018</span>
@@ -235,24 +469,7 @@ function Home() {
               <a href="#projects" className="btn btn--primary">View Projects →</a>
             </div>
             <div className="hero__right">
-              <div className="hero__stats-grid">
-                <div className="hero__stat-box">
-                  <span className="hero__stat-num">10M+</span>
-                  <span className="hero__stat-label">Searches/mo</span>
-                </div>
-                <div className="hero__stat-box">
-                  <span className="hero__stat-num">7+</span>
-                  <span className="hero__stat-label">Platforms</span>
-                </div>
-                <div className="hero__stat-box">
-                  <span className="hero__stat-num">#1</span>
-                  <span className="hero__stat-label">Eolo Partner</span>
-                </div>
-                <div className="hero__stat-box">
-                  <span className="hero__stat-num">AI</span>
-                  <span className="hero__stat-label">First</span>
-                </div>
-              </div>
+              <AIDashboard />
             </div>
           </div>
         </div>
