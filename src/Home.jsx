@@ -198,6 +198,8 @@ function AIDashboard() {
 
   return (
     <div className="hero__dashboard">
+      <h3 style={{ textAlign: 'center', color: 'rgba(255,255,255,0.9)', fontSize: '1.5rem', marginBottom: '2rem', fontWeight: '600' }}>I nostri numeri mensili</h3>
+
       {/* Lead Accelerator */}
       <div className="project-dash" data-project="lead-accelerator">
         <div className="project-dash__header">
@@ -207,13 +209,13 @@ function AIDashboard() {
         <div className="project-dash__metrics">
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="1247" />
+              <AnimatedNumber target="6000" />
             </div>
             <div className="project-dash__label">Leads</div>
           </div>
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="89" />
+              <AnimatedNumber target="600" />
             </div>
             <div className="project-dash__label">Contracts</div>
           </div>
@@ -232,15 +234,15 @@ function AIDashboard() {
         <div className="project-dash__metrics">
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="10" suffix=".2M" />
+              <AnimatedNumber target="3" suffix="M" />
             </div>
-            <div className="project-dash__label">Searches</div>
+            <div className="project-dash__label">Clicks</div>
           </div>
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="847" suffix="K" />
+              <AnimatedNumber target="100" suffix="%" />
             </div>
-            <div className="project-dash__label">Clicks</div>
+            <div className="project-dash__label">Quality</div>
           </div>
         </div>
         <div className="project-dash__bar">
@@ -257,15 +259,15 @@ function AIDashboard() {
         <div className="project-dash__metrics">
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="124" suffix="K" />
+              <AnimatedNumber target="5" suffix="M" />
             </div>
             <div className="project-dash__label">Clicks</div>
           </div>
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="12" suffix=".3%" />
+              <AnimatedNumber target="100" suffix="K" />
             </div>
-            <div className="project-dash__label">CVR</div>
+            <div className="project-dash__label">Sales</div>
           </div>
         </div>
         <div className="project-dash__bar">
@@ -282,13 +284,13 @@ function AIDashboard() {
         <div className="project-dash__metrics">
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="45" suffix=".2K" />
+              <AnimatedNumber target="100" suffix="K" />
             </div>
             <div className="project-dash__label">Sent</div>
           </div>
           <div className="project-dash__metric">
             <div className="project-dash__value">
-              <AnimatedNumber target="3" suffix=".8K" />
+              <AnimatedNumber target="2" suffix="K" />
             </div>
             <div className="project-dash__label">Replies</div>
           </div>
