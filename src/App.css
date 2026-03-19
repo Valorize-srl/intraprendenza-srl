@@ -1076,6 +1076,68 @@
 }
 
 /* ═══════════════════════════════════════════
+   Bando Impresa Digitale
+   ═══════════════════════════════════════════ */
+.bando-page {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+  background: var(--light);
+}
+.bando-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.bando-header-image {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.bando-header-image img {
+  max-width: 100%;
+  height: auto;
+}
+.bando-text {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+.bando-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+.bando-intro strong {
+  color: var(--dark);
+}
+.bando-section {
+  margin-bottom: 2rem;
+}
+.bando-section:last-child {
+  margin-bottom: 0;
+}
+.bando-section h3 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.bando-section p {
+  color: var(--gray-500);
+  line-height: 1.8;
+}
+.bando-section strong {
+  color: var(--dark);
+}
+
+/* ═══════════════════════════════════════════
    Footer
    ═══════════════════════════════════════════ */
 .footer {

@@ -812,6 +812,7 @@ function Home() {
                   <li><a href="#projects">Projects</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li><Link to="/privacy">Privacy Policy</Link></li>
+                  <li><Link to="/bando-impresa-digitale">Bando Impresa Digitale</Link></li>
                 </ul>
               </div>
             </div>
