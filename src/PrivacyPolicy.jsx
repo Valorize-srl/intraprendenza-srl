@@ -14,7 +14,7 @@ function PrivacyPolicy() {
 
   return (
     <div className="app">
-      <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
+      <header className="header header--scrolled">
         <div className="container header__inner">
           <Link to="/" className="header__logo">intraprendenza</Link>
           <nav className="header__nav">
