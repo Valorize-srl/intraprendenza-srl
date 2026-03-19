@@ -595,10 +595,13 @@ function Home() {
 
   const timeline = [
     { year: '2018', title: 'Foundation', description: 'Intraprendenza is born with a mission to innovate performance marketing.' },
+    { year: '2019', title: 'Lead Accelerator Launch', description: 'Launch of Lead Accelerator platform.' },
     { year: '2020', title: 'Search Booster Launch', description: 'Launch of proprietary search technology with Yahoo! partnership.' },
-    { year: '2023', title: 'Cleobi & Eolo Award', description: 'Cleobi launches as eBay partner. First "Best Partner" award from Eolo.' },
-    { year: '2024', title: 'AI-First Transformation', description: 'Company-wide AI-first transformation. Second consecutive Eolo Best Partner award.' },
-    { year: '2025', title: 'Miriade.ai', description: 'Launch of Miriade.ai — AI-native B2B outreach platform. Full AI-first operating model.' },
+    { year: '2022', title: 'Cleobi Launch', description: 'Cleobi launches as eBay partner.' },
+    { year: '2023', title: 'Lead Accelerator Eolo Award', description: 'First "Best Partner" award from Eolo for Lead Accelerator.' },
+    { year: '2024', title: 'Eolo Award', description: 'Second consecutive "Best Partner" award from Eolo.' },
+    { year: '2025', title: 'AI-First Transformation', description: 'Company-wide AI-first transformation.' },
+    { year: '2026', title: 'Miriade.ai', description: 'Launch of Miriade.ai — AI-native B2B outreach platform. Full AI-first operating model.' },
   ]
 
   return (
